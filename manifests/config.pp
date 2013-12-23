@@ -20,10 +20,6 @@ class kibana3::config {
       ensure  => present,
       content => template('kibana3/config.js.erb');
 
-    "${::kibana3::config_dir}/apache2.conf":
-      ensure  => present,
-      content => template('kibana3/apache2.conf.erb');
-
     "${::kibana3::config_dir}/nginx.conf":
       ensure  => present,
       content => template('kibana3/nginx.conf.erb');
