@@ -3,7 +3,7 @@
 class kibana3::config {
   File {
     require => Class['::kibana3::install'],
-    notify  => Service[$::kibana3::service_name],
+    #    notify  => Service[$::kibana3::service_name],
     owner   => $::kibana3::config_user,
     group   => $::kibana3::config_group,
     mode    => $::kibana3::config_file_mode,
@@ -20,9 +20,9 @@ class kibana3::config {
       ensure  => present,
       content => template('kibana3/config.js.erb');
 
-    "${::kibana3::config_dir}/nginx.conf":
-      ensure  => present,
-      content => template('kibana3/nginx.conf.erb');
+    #    "${::kibana3::config_dir}/nginx.conf":
+    #      ensure  => present,
+    #      content => template('kibana3/nginx.conf.erb');
   }
 
   if $::kibana3::log_dir {
